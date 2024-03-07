@@ -269,7 +269,3 @@ backbtn.addEventListener('click', () => {
   doIteration();
   doIteration2();
 });
-
-socket.on('allTurnsCompleted', () => {
-  alert('All turns completed');
-});

@@ -82,13 +82,8 @@ io.on('connection', (socket) => {
   });
 
   var choices = [];
-  var turns = 0;
 
   socket.on('myChoice', (msg) => {
-    if (turns == 2) {
-      io.to(roomIamIn).emit('allTurnsCompleted', {});
-    }
-    turns++;
     console.log(msg);
     for (var r in rooms) {
       if (rooms[r].roomName == roomIamIn) {
