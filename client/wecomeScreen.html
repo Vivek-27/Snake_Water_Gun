@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scake Water Gun</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="/client/img_pokemon/buttons/logo.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Jacquarda+Bastarda+9&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.socket.io/4.5.0/socket.io.min.js"
+      integrity="sha384-7EyYLQZgWBi67fBtVxw60/OWl1kjsfrPFcaU0pp0nAh+i8FD068QogUvg85Ewy1k"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="welcomeScreen.css" />
+  </head>
+  <body>
+    <!-- Welcome Screen starts from here -->
+    <div class="container" id="container">
+      <div class="top">
+        <div id="chooseBg"></div>
+      </div>
+      <div class="mid">
+        <div class="title">
+          <p
+            style="
+              color: rgba(255, 19, 204, 0.704);
+              position: relative;
+              left: -3rem;
+              animation: move 0.7s ease-in-out infinite alternate;
+            "
+          >
+            Snake
+          </p>
+          <p
+            style="
+              scale: 1.5;
+              color: rgba(19, 98, 255, 0.704);
+              position: relative;
+              top: -4rem;
+              animation: move 0.9s ease-in-out infinite alternate;
+            "
+          >
+            Water
+          </p>
+          <p
+            style="
+              color: rgba(255, 198, 13, 0.866);
+              position: relative;
+              right: -0.7em;
+              margin-top: 0.6rem;
+              animation: move 0.6s ease-in-out infinite alternate;
+            "
+          >
+            Gun
+          </p>
+        </div>
+        <div class="images">
+          <img
+            id="snake_img"
+            class="ch_img"
+            src="../img_pokemon/pokemon/snake2.png"
+            alt=""
+          />
+          <img
+            id="water_img"
+            class="ch_img"
+            src="../img_pokemon/pokemon/water.png"
+            alt=""
+          />
+          <img
+            id="gun_img"
+            class="ch_img"
+            src="../img_pokemon/pokemon/gun.png"
+            alt=""
+          />
+        </div>
+        <div class="platform">
+          <img src="../img_pokemon/pokemon/platform.png" alt="" />
+        </div>
+      </div>
+      <div class="left">
+        <img
+          id="btnPlayF"
+          class="btnPlay"
+          src="../img_pokemon/buttons/Play with friend.png"
+          alt=""
+        />
+        <img
+          id="btnPlayS"
+          class="btnPlay"
+          src="../img_pokemon/buttons/Play with Strainger.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <!-- game screen starts from here-->
+    <div id="gameScreenContainer" class="container" style="display: none">
+      <div class="leftGameScreen">
+        <div class="topGameScreenLeft">
+          <div class="stars">
+            <img
+              class="profile_pic"
+              src="../img_pokemon/pokemon/profile.png"
+              alt=""
+            />
+            <img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            /><img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            /><img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div id="char_fliker" class="ch_fliker fliker_left">
+          <img
+            id="flikerImg1"
+            class="fliker_img"
+            src="../img_pokemon/pokemon/gun.png"
+            alt=""
+          />
+
+          <img
+            class="platform_gamesc"
+            src="../img_pokemon/pokemon/platform.png"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="rightGameScreen">
+        <div class="topGameScreenRight">
+          <div class="stars">
+            <img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            /><img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            /><img
+              id="star"
+              src="../img_pokemon/buttons/hp_gold_star.svg"
+              alt=""
+            />
+            <img
+              class="profile_pic"
+              src="../img_pokemon/pokemon/profile2.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div id="char_fliker" class="ch_fliker fliker_right">
+          <img
+            id="flikerImg1"
+            class="fliker_img"
+            src="../img_pokemon/pokemon/gun.png"
+            alt=""
+          />
+
+          <img
+            class="platform_gamesc"
+            src="../img_pokemon/pokemon/platform.png"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div class="optionsToChoose">
+        <div class="option1">
+          <img
+            class="framecut"
+            src="../img_pokemon/pokemon/framecut.png"
+            alt=""
+          />
+          <img
+            class="frame_img"
+            src="../img_pokemon/pokemon/snake.png"
+            alt=""
+          />
+          <img class="frame" src="../img_pokemon/pokemon/frame.png" alt="" />
+        </div>
+        <div class="option2">
+          <img
+            class="framecut"
+            src="../img_pokemon/pokemon/framecut.png"
+            alt=""
+          />
+          <img
+            class="frame_img"
+            src="../img_pokemon/pokemon/water.png"
+            alt=""
+          />
+          <img class="frame" src="../img_pokemon/pokemon/frame.png" alt="" />
+        </div>
+        <div class="option3">
+          <img
+            class="framecut"
+            src="../img_pokemon/pokemon/framecut.png"
+            alt=""
+          />
+          <img class="frame_img" src="../img_pokemon/pokemon/gun.png" alt="" />
+          <img class="frame" src="../img_pokemon/pokemon/frame.png" alt="" />
+        </div>
+      </div>
+
+      <div class="top_mid">
+        <div class="score scoreleft">1/3</div>
+        <div class="timer">
+          <p>30s</p>
+        </div>
+        <div class="score scoreright">2/3</div>
+      </div>
+      '
+
+      <div class="resultgameScreen">
+        <img
+          id="resultgameScreenWin"
+          src="./img_pokemon/pokemon/win_text.png"
+          alt=""
+        />
+        <img
+          id="resultgameScreenLose"
+          src="./img_pokemon/pokemon/lose_text.png"
+          alt=""
+        /><img
+          id="resultgameScreenTie"
+          src="./img_pokemon/pokemon/tie_text.png"
+          alt=""
+        />
+      </div>
+
+      <div id="back_btn">
+        <img id="backbtn" src="./img_pokemon/buttons/cross_btn.webp" alt="" />
+      </div>
+    </div>
+    <!-- Result Screen starts from here -->
+    <div
+      id="resultScreenContainer"
+      class="resultContainer"
+      style="display: none"
+    >
+      <img
+        class="result_text"
+        src="../img_pokemon/pokemon/win_text.png"
+        alt=""
+      />
+      <div class="afterResultBtn">
+        <button id="playAgainBtn" class="btn">Play again</button>
+        <button id="mainMenuBtn" class="btn">Main Menu</button>
+      </div>
+    </div>
+
+    <div id="shareKeyScreen" class="shareKeyScreen" style="display: none">
+      <div>
+        <button id="createKeyBtn" class="sharebtn">Create Key</button>
+        <button id="pasteKeyBtn" class="sharebtn">Paste</button>
+      </div>
+      <p id="text_after_creatKey">
+        Click create key button to create a private key and share it with your
+        friend to play together.
+        <br />or <br />
+        If you have one already then click paste button
+      </p>
+    </div>
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="container" style="display: none">
+      <div class="loading-text">
+        <!--Loading-text-->
+        <h1 id="loading_text">
+          Waiting
+          <span class="dot-one"> .</span>
+          <span class="dot-two"> .</span>
+          <span class="dot-three"> .</span>
+        </h1>
+      </div>
+      <!--/Loading-text-->
+    </div>
+  </body>
+
+  <script src="./welcomeScreen.js"></script>
+</html>
